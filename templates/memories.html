@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful memories</title>
+    <link rel="icon" type="image/x-icon" href="../static/IMG/favicon.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='memories.css') }}">
+    <link rel ="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="{{ url_for('static', filename='audio/Luna.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Alternative method using user interaction
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('backgroundMusic');
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true });
+    </script>
+    <div id="encabezado-container">
+        <div id="brillo">¡¡Recuerdos que me encantan!!<br>elige una foto del corazón y cliqueala</div>
+    </div>
+    <div class="contenedor-flex">
+        <div class="galeria">
+            <img src="../static/IMG/15.jpeg">
+            <img src="../static/IMG/2.jpeg">
+            <img src="../static/IMG/17.jpeg">
+            <img src="../static/IMG/9.jpeg">
+            <img src="../static/IMG/10.jpeg">
+            <img src="../static/IMG/11.jpeg">
+        </div>
+        <div class="heart">
+            <div class="heart-row">
+                <div class="card"><div class="front"><img src="../static/IMG/1.jpeg"/></div><div class="back">Estar arrunchada contigo quisiera hacerlo cada día al terminar mi día</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/3.jpeg"/></div><div class="back">Tomarnos fotos tontas juntas es muy lindo, y más si solo lo haces conmigo</div></div>
+            </div>
+            <div class="heart-row">
+                <div class="card"><div class="front"><img src="../static/IMG/4.jpeg"/></div><div class="back">Gracias por existir y estar ahí para mi</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/5.jpeg"/></div><div class="back">En esta y otras vidas siempre elegiría estar contigo</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/6.jpeg"/></div><div class="back">Gracias por enseñarme lo que es ser amada y lo que es amar😭</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/7.jpeg"/></div><div class="back">Siempre estaré orgullosa de ti y de lo mucho que te esfuerzas</div></div>
+            </div>
+            <div class="heart-row">
+                <div class="card"><div class="front"><img src="../static/IMG/8.jpeg"/></div><div class="back">Adoro conocer lugares juntos, espero conocer más junto a ti</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/13.jpeg"/></div><div class="back">Me encanta tu parte pervertida, aunque a veces te pasas</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/14.jpeg"/></div><div class="back">Espero pasar muchos más años nuevos contigo</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/16.jpeg"/></div><div class="back">La navidad es mucho mejor si estás tu, mi vida es mejor si estás tu</div></div>
+            </div>
+            <div class="heart-row">
+                <div class="card"><div class="front"><img src="../static/IMG/18.jpeg"/></div><div class="back">Amo que me cuides y que me quieras ver más linda💕, nunca te apartes de mi lado</div></div>
+                <div class="card"><div class="front"><img src="../static/IMG/19.jpeg"/></div><div class="back">Verte dormir y estar simplemente existiendo contigo es de mis cosas favoritas</div></div>
+            </div>
+            <div class="heart-row">
+                <div class="card"><div class="front"><img src="../static/IMG/20.jpeg"/></div><div class="back">Se siente bonito el saber que piensas en mi<33</div></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+          card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+          });
+        });
+    </script>
+    <script>
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+    
+        setInterval(createFloatingHeart, 100);
+    </script>
+  
+</body>
+</html>

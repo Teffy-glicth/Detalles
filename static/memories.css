@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Neue", serif;
+}
+
+body {
+    background: #f8f6f1;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Patrón de corazones para el fondo */
+body::before {
+    content: '❤';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    color: #ff1a75;
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    place-items: center;
+    z-index: -1;
+}
+
+.galeria {
+    --d: 12s; 
+    display: grid;
+    place-items: center;
+    width: 350px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.heart {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación de corazones flotantes */
+@keyframes floatingHearts {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.floating-heart {
+    position: fixed;
+    color: #ff1a75;
+    font-size: 20px;
+    opacity: 0;
+    z-index: -1;
+    animation: floatingHearts 10s linear infinite;
+}
+
+/* Agregar corazones flotantes con JavaScript */
+
+#encabezado-container {
+    position: relative;  /* Cambiado de absolute a relative */
+    text-align: center;
+    margin: 30px 0;  /* Añadido margen arriba y abajo */
+}
+
+#brillo {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 1.2;  /* Añadido para mejor espaciado entre líneas */
+    color: rgba(255, 0, 102, 0.3);
+    background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+    -webkit-background-size: 150px;
+    -webkit-background-clip: text;
+    -webkit-animation-name: brillo;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    text-shadow: 0 0px 0px rgba(233, 85, 189, 0.419);
+}
+
+@-webkit-keyframes brillo {
+    0%, 10% { background-position: -1000px; }
+    20% { background-position: top left; }
+    90% { background-position: top right; }
+    100% { background-position: 1000px; }
+}
+/* Eliminar la segunda definición de .contenedor-flex y mantener solo esta */
+.contenedor-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    max-width: 400px; 
+    margin: 0 auto;
+}
+.galeria {
+    --d: 12s; 
+    display: grid;
+    place-items: center;
+    width: 350px;
+}
+
+.galeria > img {
+    grid-area: 1/1;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 15px solid #f2f2f2;
+    box-shadow: 0 0 4px #0007;
+    z-index: 2;
+    animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
+}
+
+.galeria img:last-child {
+    animation-name: slide, z-order-last;
+}
+
+.galeria > img:nth-child(1) { animation-delay: 0s; --r: 16deg; }
+.galeria > img:nth-child(2) { animation-delay: -2s; --r: -1deg; }
+.galeria > img:nth-child(3) { animation-delay: -4s; --r: -19deg; }
+.galeria > img:nth-child(4) { animation-delay: -6s; --r: 6deg; }
+.galeria > img:nth-child(5) { animation-delay: -8s; --r: -8deg; }
+.galeria > img:nth-child(6) { animation-delay: -10s; --r: 12deg; }
+
+      
+
+
+
+
+
+@keyframes slide {
+    10% { transform: translateX(120%) rotate(var(--r)); }
+    0%, 100%, 20% { transform: translateX(0%) rotate(var(--r)); }
+}
+
+@keyframes z-order {
+    10%, 20% { z-index: 1; }
+    80% { z-index: 2; }
+}
+
+@keyframes z-order-last {
+    10%, 20% { z-index: 1; }
+    90% { z-index: 2; }
+}
+/* Eliminar la definición duplicada de .contenedor-flex que está más abajo en el archivo */
+
+.contenedor-flex {
+    display: flex;
+    justify-content: space-around;  /* Cambiado a space-around para mejor distribución */
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;  /* Aseguramos que use todo el ancho disponible */
+    max-width: 1200px;  /* Limitamos el ancho máximo */
+    margin: 0 auto;  /* Centramos el contenedor */
+}
+
+.galeria {
+    margin-right: 100px;  /* Añadimos margen a la derecha de la galería */
+}
+
+.heart {
+    margin-left: 200px;  /* Añadimos margen a la izquierda del corazón */
+}
+.contenedor-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.heart {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.heart-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 5px;
+}
+
+.card {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.front {
+    background: white;
+}
+
+.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.back {
+    background: #ffcce6;
+    transform: rotateY(180deg);
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    color: #ff1a75;
+    font-weight: bold;
+}
+
+/* Ajustar tamaños específicos para cada fila para formar el corazón */
+.heart-row:nth-child(1) { transform: translateX(10px);display: flex; gap:160px; margin: bottom -15px;}
+.heart-row:nth-child(2) { transform: translateX(0); margin: bottom -20px;}
+.heart-row:nth-child(3) { transform: translateX(0) scale(0.95); margin: bottom -15px; }
+.heart-row:nth-child(4) { transform: translateX(0) scale(1); margin-top:10px ; }
+.heart-row:nth-child(5) { transform: translateX(5px);  }
+.card:hover {
+    cursor: pointer;
+}
+ 
+
+@media only screen and (max-width: 600px) {
+    #brillo { 
+        font-size: 22px; 
+    }
+    
+    .contenedor-flex {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .galeria {
+        width: 250px;  /* Aumentado de 150px */
+        margin: 0 auto;  /* Centrado */
+    }
+
+    .heart {
+        width: 90%;  /* Ajuste responsive */
+        margin: 0 auto;
+        transform: scale(0.8);  /* Reduce ligeramente el tamaño */
+    }
+
+    .card {
+        width: 80px;  /* Reducido para móviles */
+        height: 80px;
+    }
+
+    .back {
+        font-size: 12px;  /* Texto más pequeño para móviles */
+    }
+}

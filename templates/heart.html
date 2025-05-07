@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "preconnect" href = "https://fonts.googleapis.com">
+    <link rel = "preconnect" href = "https://fonts.gstatic.com">
+    <link href = "https://fonts.googleapis.com/css2?family=Poppins:wght@300:400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Heart.css') }}">
+    <title>My heart is yours</title>
+    <link rel="icon" type="image/x-icon" href="../static/IMG/favicon.png">
+
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="{{ url_for('static', filename='audio/Pruebame.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Alternative method using user interaction
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('backgroundMusic');
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true });
+    </script>
+    <div class="heart">
+        <p> Amo cada momento que paso a tu lado, cada minuto que paso contigo me hace pensar más en que no eres el amor de mi vida, porque la vida es muy corta, eres el amor de mi alma mi alma, porque donde quiera que me encuentre, seguiré contigo siempre❤️.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js">
+
+    </script>
+    <script>
+        setInterval(() => {
+            confetti({
+                particleCount: 100,
+                spread: 60,
+                origin: { x: 0.5, y: 0.7 }
+            });
+         }, 3000);
+    </script>
+    <div class="stars"></div>
+        <script>
+            const starsContainer = document.querySelector('.stars');
+            for(let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+           
+            for(let i = 0; i < 30; i++) {
+                const bigStar = document.createElement('div');
+                bigStar.className = 'star big-star';
+                bigStar.style.left = `${Math.random() * 100}%`;
+                bigStar.style.top = `${Math.random() * 100}%`;
+                bigStar.style.animationDelay = `${Math.random() * 3}s`;
+                starsContainer.appendChild(bigStar);
+            }
+        </script>
+    <script>
+        // Crear estrellas fugaces
+        setInterval(() => {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            shootingStar.style.top = `${Math.random() * 100}%`;
+            document.body.appendChild(shootingStar);
+            
+            // Eliminar la estrella fugaz después de la animación
+            setTimeout(() => {
+                shootingStar.remove();
+            }, 5000);
+        }, 8000);
+    </script>
+    <div id="cursor-hearts"></div>
+        <script>
+            document.addEventListener('mousemove', (e) => {
+                if(Math.random() > 0.5) {
+                    const heart = document.createElement('div');
+                    heart.className = 'cursor-heart';
+                    heart.style.left = `${e.clientX}px`;
+                    heart.style.top = `${e.clientY}px`;
+                    document.getElementById('cursor-hearts').appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 1000);
+                }
+            });
+        </script>
+    </body>
+</html>

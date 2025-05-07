@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Te amo</title>
+    <link rel="icon" type="image/x-icon" href="../static/IMG/favicon.png">
+</head>
+<body>
+   
+
+    <div class="menu-container">
+        <div class="content-wrapper">
+            <h1>Un regalito con todo el amor del mundo</h1>
+            <p class="text">Hola mi amor, espero te encuentres muy bien. Esta es una pequeña pagina que hice con todo el amor del mundo (con esfuerzo y mucha ayuda jiji),
+                solo espero que te guste, se que es poco, sin embargo, viene del corazón. 
+            <br><br>y recuerda <strong>¡¡Te amo de aqui a la luna y devuelta a pasitos de tortuga🐢🐢!!</strong>
+            <br> cada que entres a un boton, cliquea despues la pantalla;)
+            </p>
+        </div>
+            
+            <div class="buttons-container">
+                <h1>Cada botón representa una pequeña parte de mi amor</h1>
+                <a href="{{ url_for('heart') }}" class="menu-button heart-button">
+                    <span>My heart is yours</span>
+                </a>
+                <a href="{{ url_for('memories') }}" class="menu-button heart-button">
+                    <span>My favorite memories</span>
+                </a>
+                <a href="{{ url_for('letter') }}" class="menu-button heart-button">
+                    <span>I think of you</span>
+                </a>
+                <a href="{{ url_for('Love') }}" class="menu-button heart-button">
+                    <span>My love</span>
+                </a>
+                <a href="{{ url_for('Ask') }}" class="menu-button heart-button">
+                    <span>Love proposal</span>
+                </a>
+
+                
+            </div>
+        
+    </div>
+</body>
+</html>

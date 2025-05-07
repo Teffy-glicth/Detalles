@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/letter.css">
+    <title>Your Music</title>
+    <link rel="icon" type="image/x-icon" href="../static/IMG/favicon.png">
+</head>
+<body>
+    <div class="cards-container">
+        <!-- Carta 1 -->
+        <div class="valentines-day-card">
+            <input id="open1" type="checkbox" onchange="toggleMusic(1)">
+            <audio id="song1" src="../static/audio/song1.mp3" preload="auto"></audio>
+            <label class="open" for="open1"></label>
+            <div class="card-front">
+                <div class="note">Si volviera a nacer</div>
+            </div>
+            <div class="card-inside">
+                <div class="lyrics-container">
+                    <!-- Las letras se agregarán dinámicamente -->
+                </div>
+                <div class="heart-decoration"></div>
+            </div>
+        </div>
+
+        <!-- Carta 2 -->
+        <div class="valentines-day-card">
+            <input id="open2" type="checkbox" onchange="toggleMusic(2)">
+            <audio id="song2" src="../static/audio/song2.mp3" preload="auto"></audio>
+            <label class="open" for="open2"></label>
+            <div class="card-front">
+                <div class="note">Quédate esta noche</div>
+            </div>
+            <div class="card-inside">
+                <div class="lyrics-container">
+                    <!-- Las letras se agregarán dinámicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Carta 3 -->
+        <div class="valentines-day-card">
+            <input id="open3" type="checkbox" onchange="toggleMusic(3)">
+            <audio id="song3" src="../static/audio/song3.mp3" preload="auto"></audio>
+            <label class="open" for="open3"></label>
+            <div class="card-front">
+                <div class="note">Es verdad</div>
+            </div>
+            <div class="card-inside">
+                <div class="lyrics-container">
+                    <!-- Las letras se agregarán dinámicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Carta 4 -->
+        <div class="valentines-day-card">
+            <input id="open4" type="checkbox" onchange="toggleMusic(4)">
+            <audio id="song4" src="../static/audio/song4.mp3" preload="auto"></audio>
+            <label class="open" for="open4"></label>
+            <div class="card-front">
+                <div class="note">Je te laisserai des mots</div>
+            </div>
+            <div class="card-inside">
+                <div class="lyrics-container">
+                    <!-- Las letras se agregarán dinámicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Carta 5 -->
+        <div class="valentines-day-card">
+            <input id="open5" type="checkbox" onchange="toggleMusic(5)">
+            <audio id="song5" src="../static/audio/song5.mp3" preload="auto"></audio>
+            <label class="open" for="open5"></label>
+            <div class="card-front">
+                <div class="note">Safe place</div>
+            </div>
+            <div class="card-inside">
+                <div class="lyrics-container">
+                    <!-- Las letras se agregarán dinámicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Carta 6 -->
+        <div class="valentines-day-card">
+            <input id="open6" type="checkbox" onchange="toggleMusic(6)">
+            <audio id="song6" src="../static/audio/song6.mp3" preload="auto"></audio>
+            <label class="open" for="open6"></label>
+            <div class="card-front">
+                <div class="note">Those eyes</div>
+            </div>
+            <div class="card-inside">
+                <div class="lyrics-container">
+                    <!-- Las letras se agregarán dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1/dist/confetti.browser.min.js"></script>
+    <script>
+        setInterval(() => {
+            confetti({
+                particleCount: 100,
+                spread: 60,
+                origin: { x: 0.5, y: 0.5 }
+            });
+        }, 2000); 
+    </script>-->
+    <script>
+        // Precarga las canciones cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            for(let i = 1; i <= 6; i++) {
+                const audio = document.getElementById(`song${i}`);
+                audio.load();
+            }
+        });
+
+        const lyrics = {
+            1: [
+            {text: "...", time: 0},
+                {text: "Si volviera a nacer", time: 6000},
+                {text: "Lo haría para entender", time: 8700},
+                {text: "que por tu amor, por tu amor, muero", time: 10900},
+                {text: "y si volviera a crecer, te escogería otra vez", time: 16000},
+                {text: "Para ver sin filtro el mundo al lado tuyo", time: 21000},
+                {text: "Quedarme ahí contigo, hablar hasta dormirnos", time: 26000},
+                {text: "Perderme en tus dibujos", time: 31000},
+                {text: "Volver a la montaña, sentir la tierra fría", time: 34000},
+                {text: "Volver a tu mirada y ver esa sonrisa", time: 38900},
+                {text: "Y si volviera a nacer", time: 44900},
+                {text: "No cambiaría nada del ayer", time: 48000},
+                {text: "Tu voz abraza todo lo que fue", time: 53000},
+                {text: "Yo quiero regresar, sentir tu arrullo", time: 58700},
+                {text: "Sentir tu arrullo", time: 63000},
+                {text: "Y si volviera a nacer", time: 65000},
+                {text: "Me quedaría en el instante capturado por tus ojos (uh)", time: 70000},
+                {text: "Y si pudiera escoger", time: 78000},
+                {text: "Me quedaría en el trazo del pincel que usas", time: 83000},
+                {text: "Viviendo en tus pinturas, corriendo por el valle", time: 88000},
+                {text: "El lienzo que se extiende y llega hasta mi mente", time: 93000},
+                {text: "Sentir que estás presente", time: 98000},
+                {text: "Volver a tu mirada y ver esa sonrisa", time: 101000},
+                {text: "Y si volviera a nacer", time: 106000},
+                {text: "No cambiaría nada del ayer", time: 110000},
+                {text: "Tu voz abraza todo lo que fue", time: 115900},
+                {text: "Hoy quiero regresar, sentir tu arrullo", time: 120000},
+                {text: "Sentir tu arrullo", time: 122000},
+                {text: "...", time: 130900},
+                {text: "Si volviera a nacer", time: 137900},
+                {text: "Si volviera a nacer", time: 148000},
+                {text: "No cambiaría nada del ayer", time: 151000},
+                {text: "Tu voz abraza todo lo que fue", time: 156000},
+                {text: "Hoy quiero regresar, sentir tu arrullo", time: 162000},
+                {text: "Sentir tu arrullo", time: 166000},
+                {text: "...", time: 172000},
+                {text: "Si volviera a nacer", time: 179000},
+                {text: "Y si volviera a nacer", time: 189000},
+                {text: "Si volviera, volviera, volviera", time: 195000},
+                {text: "Si volviera, volviera a nacer", time: 200000},
+                {text: "Si volviera, volviera a nacer", time: 202000},
+                {text: "Si volviera, volviera, volviera", time: 208000},
+                {text: "Si volviera a nacer, ¡uh!", time: 210000}
+                
+            ],
+            2: [
+                {text: "...", time: 0},
+                {text: "Cuando te diga,", time: 10000},
+                {text: "Que te voy a olvidar", time: 13000},
+                {text: "No me lo creas, por favor", time: 19000},
+                {text: "Cuando me veas dudar", time: 27000},
+                {text: "Y dudar, no me hagas caso", time: 31900},
+                {text: "Es que sólo tengo miedo", time: 38000},
+                {text: "Si de vez en cuando", time: 44000},
+                {text: "Me pongo a llorar", time: 47000},
+                {text: "Es por todo este enredo", time: 52000},
+                {text: "Desearía ser más prudente", time: 55000},
+                {text: "Seguramente mi credibilidad", time: 62000},
+                {text: "Está por los suelos", time: 70000},
+                {text: "Y por eso, justamente", time: 71000},
+                {text: "Te escribo ésta canción", time: 77000},
+                {text: "Para que sepas", time: 82000},
+                {text: "Que tal vez me contradigo", time: 85000},
+                {text: "Pero si de algo estoy segura", time: 89000},
+                {text: "Es que quiero estar contigo", time: 92000},
+                {text: "Que soy una caracola", time: 99000},
+                {text: "Revolcada por las olas", time: 102000},
+                {text: "Aturdida con tu amor", time: 106000},
+                {text: "Seré sincera, quédate", time: 114000},
+                {text: "Esta noche conmigo", time: 120000},
+                {text: "Por favor", time: 124000},
+                {text: "Cuando me aflore", time: 134000},
+                {text: "La hipersensibilidad", time: 137000},
+                {text: "No me lo tomes a mal", time: 143000},
+                {text: "Es que tú provocas esto", time: 145000},
+                {text: "Y cuando me pierda", time: 151000},
+                {text: "En tu profundidad", time: 153000},
+                {text: "No me detengas", time: 160000},
+                {text: "Sólo déjame enredarme", time: 162000},
+                {text: "Desde ahí te cantaré", time: 166000},
+                {text: "Para que sepas", time: 172000},
+                {text: "Que tal vez me contradigo", time: 175000},
+                {text: "Pero si de algo estoy segura", time: 179000},
+                {text: "Es que quiero estar contigo", time: 182000},
+                {text: "Que soy una caracola", time: 189000},
+                {text: "Revolcada por las olas", time: 192000},
+                {text: "Aturdida por tu amor", time: 196000},
+                {text: "Seré sincera, quédate", time: 203000},
+                {text: "Esta noche conmigo", time: 209000},
+                {text: "Por favor", time: 213000},
+            ],
+            3: [
+                {text: "...", time: 0},
+                {text: "Y si de pronto me acelero", time: 3000},
+                {text: "Y te repito que te quiero", time: 9900},
+                {text: "Es verdad", time: 13000},
+                {text: "Que si en tu piel sobra consuelos", time: 16000},
+                {text: "¿Para qué quiero ir al cielo?", time: 20000},
+                {text: "Es verdad", time: 25000},
+                {text: "Sé que eres tú en esta y mil realidades", time: 29000},
+                {text: "Eres cauce de luz, río de casualidades", time: 33000},
+                {text: "No quisiera explicarte, solo sé que al mirarte", time: 39000},
+                {text: "Simplemente es verdad", time: 44900},
+                {text: "...", time: 51000},
+                {text: "Que si tus ojos son las huellas", time: 73000},
+                {text: "Que la eternidad destella", time: 77000},
+                {text: "Es verdad", time: 81000},
+                {text: "Eres acción y mi motivo", time: 84000},
+                {text: "Eres amor definitivo", time: 88000},
+                {text: "Eres la verdad", time: 93000},
+                {text: "Sé que eres tú en esta y mil realidades", time: 96000},
+                {text: "Eres cauce de luz, río de casualidades", time: 101000},
+                {text: "No quisiera explicarte, solo sé que al mirarte", time: 107000},
+                {text: "Simplemente es verdad", time: 112000},
+                {text: "Sé que eres tú en esta y mil realidades", time: 119000},
+                {text: "Eres cauce de luz, río de casualidades", time: 123000},
+                {text: "No quisiera explicarte, solo sé que al mirarte", time: 129000},
+                {text: "Simplemente es verdad", time: 140000}
+            ],
+            4: [
+                {text: "...", time: 0},
+                {text: "Te dejaré notas", time: 65900},
+                {text: "Debajo de tu puerta", time: 70000},
+                {text: "Debajo de los muros que cantan", time: 75000},
+                {text: "Muy cerca del lugar por donde pasan tus pies", time: 80000},
+                {text: "Escondido en los hoyos en invierno", time: 85000},
+                {text: "Y cuando estés solo por un tiempo", time: 90000},
+                {text: "Recuérdame", time: 95000},
+                {text: "Cuando quieras", time: 99000},
+                {text: "Bésame", time: 102000},
+                {text: "Cuando quieras", time: 105000},
+                {text: "Recuérdame", time: 107000},
+                {text: "Cuando quieras", time: 110000},
+                {text: "...", time: 113000},
+            ],
+            5: [
+                {text: "...", time: 0},
+                {text: "Dime cuando llegues a casa", time: 19000},
+                {text: "Porque no me gusta cuando estás solo", time: 28000},
+                {text: "Oh, oh", time: 40000},
+                {text: "Dime cuando estés triste amor", time: 46000},
+                {text: "Y estaré ahí para animarte", time: 55900},
+                {text: "Oh oh oh", time: 62000},
+                {text: "Oh oh oh", time: 67000},
+                {text: "Porque no estás solo", time: 72000},
+                {text: "Oh, cariño, seré tu lugar seguro", time: 77000},
+                {text: "...", time: 83000},
+                {text: "Dime como mejoro", time: 101000},
+                {text: "Porque solo soy una mujer que quiere quedarse a tu lado", time: 108000},
+                {text: "Oh oh oh", time: 122900},
+                {text: "Dinos como y llegaremos", time: 129000},
+                {text: "Porque eres mi hogar en todo este lío", time: 138000},
+                {text: "Oh oh oh", time: 145000},
+                {text: "Oh oh oh oh oh", time: 150000},
+                {text: "Sé que vivimos en lo desconocido", time: 154000},
+                {text: "Pero siempre seré tu", time: 159000},
+                {text: "Lugar seguro", time: 163900},
+                {text: "Lugar seguro", time: 172000},
+                {text: "Lugar seguro", time: 182000},
+                {text: "Lugar seguro", time: 192000},
+                {text: "Lugar seguro", time: 200000},
+                {text: "Lugar seguro", time: 209000},
+                {text: "Porque no estás solo", time: 219000},
+                {text: "Oh, cariño, seré tu lugar seguro", time: 223000}
+                
+            ],
+            6: [
+                {text: "Cuando estamos en una multitud riendo fuerte y nadie sabe el por qué", time: 1000},
+                {text: "Cuando estamos perdidos en un club emborrachándonos y me sonríes de esa forma", time: 12000},
+                {text: "Yendo a casa en la parte trasera de un coche y tu mano toca la mía", time: 24900},
+                {text: "Cuando terminemos de hacer el amor y tú miras hacia arriba y me echas aquella mirada", time: 36900},
+                {text: "Porque todas las pequeñas cosas que haces", time: 48000},
+                {text: "Me recuerdan porque me enamoré de ti", time: 54000},
+                {text: "Y cuando estamos separados y te estoy extrañando", time: 60000},
+                {text: "Cierro los ojos y todo lo que veo es a ti", time: 66000},
+                {text: "Y las pequeñas cosas que haces", time: 72000},
+                {text: "...", time: 75000},
+                {text: "Cuando me llamas por la noche mientras estás con tus amigos", time: 84000},
+                {text: "Cada hola, cada adiós, cada te amo que has dicho alguna vez", time: 97000},
+                {text: "Porque todas las pequeñas cosas que haces", time: 107900},
+                {text: "Me recuerdan por qué me enamoré de ti", time: 113900},
+                {text: "Y cuando estamos separados y te estoy extrañando", time: 120000},
+                {text: "Cierro los ojos y todo lo que veo es a ti", time: 126000},
+                {text: "Y las pequeñas cosas que haces", time: 131900},
+                {text: "...", time: 134000},
+                {text: "Cuando terminemos de hacer el amor y tú miras hacia arriba y me echas aquella mirada", time: 156000},
+                {text: "Porque todas las pequeñas cosas que haces", time: 167900},
+                {text: "Me recuerdan por qué me enamoré de ti", time: 174000},
+                {text: "Y cuando estamos separados y te estoy extrañando", time: 179000},
+                {text: "Cierro los ojos y todo lo que veo es a ti", time: 186000},
+                {text: "Y las pequeñas cosas que haces", time: 192000},  // Corregido de 131900
+                {text: "...", time: 204000},  // Corregido de 134000
+                {text: "Todas las pequeñas cosas que haces", time: 207000}  // Corregido de 143000
+            ]
+        };
+    
+        function toggleMusic(cardNumber) {
+            const audio = document.getElementById(`song${cardNumber}`);
+            const checkbox = document.getElementById(`open${cardNumber}`);
+            const lyricsContainer = checkbox.parentElement.querySelector('.lyrics-container');
+            
+            if (checkbox.checked) {
+                document.querySelectorAll('audio').forEach(a => a.pause());
+                audio.currentTime = 0;
+                
+                // Limpiar contenedor de letras
+                lyricsContainer.innerHTML = '';
+                
+                // Mostrar letras
+                lyrics[cardNumber].forEach((line, index) => {
+                    setTimeout(() => {
+                        lyricsContainer.innerHTML = `<div class="lyrics-line active">${line.text}</div>`;
+                    }, line.time);
+                });
+    
+                const playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Playback failed:", error);
+                    });
+                }
+            } else {
+                audio.pause();
+                lyricsContainer.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
