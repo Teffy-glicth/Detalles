@@ -352,3 +352,28 @@ input#open4, input#open5, input#open6 {
     box-shadow: inset 100px 20px 100px rgba(0, 0, 0,0.22), 100px 20px 100px rgba(0, 0, 0,0.1);
     overflow: hidden;
 }
+
+@media (max-width: 768px) {
+    .valentines-day-card {
+        transform: scale(0.9);
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .lyrics-line {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .valentines-day-card {
+        transform: scale(0.8);
+    }
+
+    .note {
+        font-size: 24px;
+    }
+}

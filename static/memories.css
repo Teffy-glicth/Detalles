@@ -277,3 +277,25 @@ body::before {
         font-size: 12px;  /* Texto más pequeño para móviles */
     }
 }
+
+@media (max-width: 768px) {
+    #brillo {
+        font-size: 40px;
+    }
+
+    .galeria {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .contenedor-flex {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #brillo {
+        font-size: 32px;
+    }
+}

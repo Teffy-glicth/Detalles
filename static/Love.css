@@ -220,3 +220,25 @@ border-radius: 15px;
         border-left: 150px solid transparent;
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .envelope-wrapper > .envelope {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+}
