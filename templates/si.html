@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Ask.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Ask.css') }}">
     <title>yo sabia </title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='IMG/favicon.png') }}">
 </head>
 <body>
-    <div class=container>
-        <img src="../static/images/happycat.gif" alt="Happy cat">
+    <audio autoplay loop>
+        <source src="{{ url_for('static', filename='audio/gane.mp3') }}" type="audio/mp3">
+    </audio>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/happycat.gif') }}" alt="dance cat">
         <h1> Yeiii!!, Lo sabiaaa, picos pa el viejo rico</h1>
     </div>
 </body>

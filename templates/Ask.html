@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='Ask.css') }}">
     <title>Te amo</title>
-    <link rel="icon" type="image/x-icon" href="../static/IMG/favicon.png">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='IMG/favicon.png') }}">
 </head>
 <body>
     <audio autoplay loop>
-        <source src="../static/audio/until.mp3" type="audio/mp3">
+        <source src="{{ url_for('static', filename='audio/until.mp3') }}" type="audio/mp3">
     </audio>
-    <div class=container> 
-        <img src="../static/images/love.gif" alt="Cute cats">
+    <div class="container"> 
+        <img src="{{ url_for('static', filename='images/love.gif') }}" alt="Cute cats">
         <h1>¿Te gustaría pasar tu vida conmigo?</h1>
-        <p> Eres con quien estoy en el presente y me inagino en el futuro🥹.</p>
+        <p>Eres con quien estoy en el presente y me imagino en el futuro🥹.</p>
         <div class="btn">
-            <a href="si.html">Si</a>
-            <a href="no1.html">No</a>
+            <a href="{{ url_for('si') }}">Si</a>
+            <a href="{{ url_for('no1') }}">No</a>
         </div>
     </div>
 </body>

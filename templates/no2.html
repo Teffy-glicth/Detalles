@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Ask.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Ask.css') }}">
     <title>Respuesta Incorrecta</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='IMG/favicon.png') }}">
 </head>
 <body>
+    <audio autoplay loop>
+        <source src="{{ url_for('static', filename='audio/malevolo.mp3') }}" type="audio/mp3">
+    </audio>
     <div class="container">
-        <img src="../static/images/girl.gif" alt="Sad cat">
-        <h1>No te desharas de mi tan facil </h1>
+        <img src="{{ url_for('static', filename='images/girl.gif') }}" alt="Girl gif">  <!-- Corregido el alt text -->
+        <h1>No te desharás de mi tan fácil</h1>  <!-- Añadidos acentos -->
         <div class="btn">
-            <a href="si.html">Si</a>
+            <a href="{{ url_for('si') }}">Si</a>
             <a href="#" id="btn-random">No</a>
         </div>
     </div>
-    <script src="../static/Ask.js"></script>
-    
+    <script src="{{ url_for('static', filename='Ask.js') }}"></script>
 </body>
 </html>

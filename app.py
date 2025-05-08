@@ -9,7 +9,8 @@ def home():
 @app.route("/heart")
 def heart():
     return render_template("heart.html")
-@app.route("/memories")
+
+@app.route("/memories")  # Añadido espacio para mejor legibilidad
 def memories():
     return render_template("memories.html")
 
@@ -17,13 +18,25 @@ def memories():
 def letter():
     return render_template("letter.html")
 
-@app.route("/Love")
-def Love():
+@app.route("/love")  # Cambiado a minúsculas para seguir convención
+def love():         # Cambiado a minúsculas para seguir convención
     return render_template("Love.html")
 
-@app.route("/Ask")
-def Ask():
+@app.route("/ask")  # Cambiado a minúsculas para seguir convención
+def ask():         # Cambiado a minúsculas para seguir convención
     return render_template("Ask.html")
+
+@app.route("/no1")
+def no1():
+    return render_template("no1.html")
+
+@app.route("/no2")
+def no2():
+    return render_template("no2.html")
+
+@app.route("/si")
+def si():
+    return render_template("si.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
