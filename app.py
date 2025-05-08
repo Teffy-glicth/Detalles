@@ -39,4 +39,8 @@ def si():
     return render_template("si.html")
 
 if __name__ == "__main__":
+    # En desarrollo
     app.run(debug=True)
+else:
+    # En producción
+    app.run(host='0.0.0.0')
